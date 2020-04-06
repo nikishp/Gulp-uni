@@ -1,0 +1,42 @@
+{
+  "name": "Gulp",
+  "version": "1.0.0",
+  "description": "Gulp project template for any task.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Niki simple",
+  "license": "ISC",
+  "devDependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "bootstrap": "^4.4.1",
+    "browser-sync": "^2.26.7",
+    "css-mqpacker": "^7.0.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-image": "^6.1.0",
+    "gulp-load-plugins": "^2.0.2",
+    "gulp-newer": "^1.4.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-remove-code": "^3.0.4",
+    "gulp-rsync": "0.0.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify-es": "^2.0.0",
+    "jquery": "^3.4.1",
+    "jquery-lazy": "^1.7.10",
+    "normalize.css": "^8.0.1",
+    "object-fit-images": "^3.2.4",
+    "parallax-js": "^3.1.0",
+    "slick-carousel": "^1.8.1",
+    "smart-grid": "^2.1.2",
+    "sort-css-media-queries": "^1.5.0",
+    "svg4everybody": "^2.1.9"
+  }
+}

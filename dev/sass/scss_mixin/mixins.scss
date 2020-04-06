@@ -1,0 +1,107 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $asset-pipeline: false, $file-formats: eot otf woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?#iefix",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    eot: "embedded-opentype",
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $file-formats {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+
+
+    @if $asset-pipeline == true {$src: append($src, font-url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    }@else{
+      $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+    };
+
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+
+
+
+/*==================================================*/
+/*==================== triangle ====================*/
+/*==================================================*/
+
+/*use example
+.triangle
+position: absolute
+top: 50%
+left: 100%;
++triangle(right, 5px, 5px, #fff)
+*/
+@mixin triangle($direction, $sizeV, $sizeH, $color) {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transform: scale(.9999);
+
+  @if $direction == top {
+    border-width: 0 $sizeV $sizeH $sizeV;
+    border-color: transparent transparent $color transparent;
+  }
+  @if $direction == bottom{
+    border-width: $sizeV $sizeH 0 $sizeV;
+    border-color: $color transparent transparent transparent;
+  }
+  @if $direction == left{
+    border-width: $sizeV $sizeH $sizeV 0;
+    border-color: transparent $color transparent transparent;
+  }
+  @if $direction == right{
+    border-width: $sizeV 0 $sizeV $sizeH;
+    border-color: transparent transparent transparent $color;
+  }
+  @if $direction == topright{
+    border-width: 0 $sizeH $sizeV 0;
+    border-color: transparent $color transparent transparent;
+  }
+  @if $direction == bottomright{
+    border-width: 0 0 $sizeH $sizeV;
+    border-color: transparent transparent $color transparent;
+  }
+  @if $direction == bottomleft{
+    border-width: $sizeH 0 0 $sizeV;
+    border-color: transparent transparent transparent $color;
+  }
+  @if $direction == topleft{
+    border-width: $sizeH $sizeV 0 0;
+    border-color: $color transparent transparent transparent;
+  }
+}

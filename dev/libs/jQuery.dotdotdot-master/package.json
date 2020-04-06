@@ -1,0 +1,29 @@
+{
+  "name": "jquery.dotdotdot",
+  "version": "2.0.1",
+  "main": "dist/jquery.dotdotdot.js",
+  "author": "Fred Heusschen <info@frebsite.nl>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FrDH/jQuery.dotdotdot.git"
+  },
+  "description": "A jQuery plugin for advanced cross-browser ellipsis on multiple line content.",
+  "keywords": [
+    "ellipsis",
+    "dotdotdot",
+    "multiline",
+    "text",
+    "text-overflow",
+    "overflow",
+    "dots"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gulp default"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-umd": "^0.2.0"
+  }
+}
